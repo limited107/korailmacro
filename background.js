@@ -8,7 +8,10 @@ function playSound() {
 	document.body.appendChild(audio);
 	audio.autoplay = true;
 	audio.src = chrome.extension.getURL('tada.mp3');
-	audio.play();
+	
+	var interval = setInterval(function() {		
+		audio.play();
+	}, 5000);
 }
 
 chrome.extension.onMessage.addListener(function(message, sender, sendResponse) {
